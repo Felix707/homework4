@@ -47,3 +47,25 @@ reverse('abcd');
 
 
 //checkerboard
+const checkerboard = function(num, star, space){
+	if(num === 0){
+		return '';
+	}
+	return star + space + checkerboard(num-2, star, space)
+};
+
+const board = function(num, length){
+	if(num === 0) {
+		return '';
+	}
+	else{
+		console.log(checkerboard(length, '*', ' '));
+		console.log(checkerboard(length, ' ', '*'));
+	}
+	return board(num-4, length);
+};
+
+board(8, 8);
+
+const result = checkerboard(8, '*', ' ');
+console.log(result);
